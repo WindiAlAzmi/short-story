@@ -1,13 +1,15 @@
-import PaginationComponent from "../components/PaginationComponent";
+import ReachDream from "../components/Home/ReachDream";
+import VideoHome from "../components/Home/VideoHome";
 
 export default function Home() {
-  
+
   return (
-    <div>
-      <PaginationComponent />
-      <div>
-        ini page component
-      </div>
+    <div className="">
+      {/* Video */}
+      <VideoHome />
+      {/* Reach dream */}
+      <ReachDream/>
+      {/* Testimonial */}
     </div>
   );
 }
