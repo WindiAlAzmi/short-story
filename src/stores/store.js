@@ -3,6 +3,7 @@ import counterReducer from "../features/counterSlice";
 import notificationReducer from "../features/notificationSlice";
 import alertReducer from "../features/alertSlice";
 import courseReducer from "../features/coursesSlice";
+import generalReducer from "../features/generalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     notification:notificationReducer,
     alert:alertReducer,
     course: courseReducer,
+    general: generalReducer
   },
 });

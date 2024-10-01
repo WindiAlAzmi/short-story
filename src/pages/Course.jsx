@@ -5,6 +5,7 @@ import HeaderCourse from "../components/Course/HeaderCourse";
 import { DataDummy } from "../datas/DataCourseDummy";
 import { addCourses } from "../features/coursesSlice";
 import { useDispatch } from "react-redux";
+import { setLoading } from "../features/generalSlice";
 
 export default function Course() {
   const dispatch = useDispatch();
@@ -22,8 +23,11 @@ export default function Course() {
     };
 
     useEffect(() => {
+      window.scroll(0, 0);
       hitAPICourse();
+      dispatch(setLoading(true));
     }, []);
+
 
   return (
    <>

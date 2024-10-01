@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
+import NotFoundComponent from "../NotFoundComponent";
 
 export default function DataCourse(props) {
   let {isFilterActive} = props;
@@ -14,7 +15,7 @@ export default function DataCourse(props) {
           : "w-full justify-center"
       } flex-wrap gap-10`}
     >
-      {dataStateCourse?.dataCourses?.length !== 0 &&
+      {dataStateCourse?.dataCourses?.length !== 0 ?
         dataStateCourse?.dataCourses?.map((item, index) => (
           <Link
             key={index}
@@ -66,7 +67,12 @@ export default function DataCourse(props) {
                 </div>
               </div>
           </Link>
-        ))}
+        )) :
+        <div className="w-full">
+          <NotFoundComponent />
+        </div>
+        
+        }
     </div>
   );
 }

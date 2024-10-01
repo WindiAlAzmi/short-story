@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { DataDummy } from "../datas/DataCourseDummy";
 import { useDispatch } from "react-redux";
 import { addDetailCourse } from "../features/coursesSlice";
+import { setLoading } from "../features/generalSlice";
 
 export default function DetailCourse() {
   const paramsData = useParams();
@@ -19,7 +20,10 @@ export default function DetailCourse() {
 
   }
   useEffect(() => {
+    window.scroll(0, 0);
     handleData();
+    dispatch(setLoading(true));
+
   }, [paramsData])
 
   return (
