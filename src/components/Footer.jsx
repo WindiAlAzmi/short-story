@@ -45,9 +45,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="max-w-7xl m-auto bg-white p-10 text-black flex flex-col gap-10 text-left">
+    <footer className="max-w-7xl m-auto bg-white md:p-10 p-4 text-black flex flex-col gap-10 text-left">
       <hr />
-      <div className="flex flex-row  ">
+      <div className="flex md:flex-row flex-col ">
         <div className="text-[12px] flex flex-col gap-2 w-[50%]">
           <img
             src="/public/assets/image/logo-brand.png"
@@ -57,7 +57,7 @@ export default function Footer() {
           <h4>Beauty Preneur Office.</h4>
           <h5>Bekasi.</h5>
         </div>
-        <div className="w-[48%] gap-10 flex flex-row justify-between ">
+        <div className="w-[48%] gap-10 flex md:flex-row flex-col justify-between ">
           {dataFooter?.map((item, index) => (
             <div
               key={index}

@@ -28,9 +28,73 @@ export const TestimonialData = () => {
     {
       id: 1,
       name: "windi",
+      photo: "/people-testi.png",
       position: "Fullstack Dev",
       testimoni:
-        "“Bagus banget pengajarnya! padahal cuman ambil course yang sesuai budget tapi ternyata helpful bgt! thank youu beautypreaneur!",
+        "Bagus banget pengajarnya! padahal cuman ambil course yang sesuai budget tapi ternyata helpful bgt! thank youu beautypreaneur`",
     },
+    {
+      id: 2,
+      name: "marchantya",
+      photo: "/people-testi2.png",
+      position: "Perawat",
+      testimoni:
+        "Bagus banget buat orang yang mau switch career!",
+    },
+  ];
+}
+
+
+export const FrequentlyAskedQuestions = () => {
+  return [
+    {
+      key: "1",
+      label: "Siapa yang bisa join course ini ? ",
+      children: <p>siapapun bisa join</p>,
+    },
+    {
+      key: "2",
+      label: "Gimana cara daftar course ?  ",
+      children: <p>klik tombol daftar di 1 data kursus di menu kursus</p>,
+    },
+    {
+      key: "3",
+      label: "Bagaimana saya bisa menjadi mentor disini ? ",
+      children: (
+        <p>
+          untuk menjadi mentor disini, klik tombol jadi mentor di footer. nanti
+          akan diarahkan ke google form untuk mengisi data course
+        </p>
+      ),
+    },
+    {
+      key: "4",
+      label: "Apakah data saya akan aman ?",
+      children: (
+        <p>
+         ya, tentu saja
+        </p>
+      ),
+    },
+  ];
+}
+
+
+export const MenuItem = () => {
+  return [
+    {
+      key: "sub1",
+      icon: "",
+      label: "Kursus",
+      path: "/",
+      children: [],
+    },
+    {
+      key: "sub2",
+      icon: "",
+      label: "Cari Kursus Di Sekitar Kamu",
+      path: "/",
+      children: [],
+    }
   ];
 }
