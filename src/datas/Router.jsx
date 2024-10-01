@@ -1,3 +1,4 @@
+import Course from "../pages/Course";
 import Greeting from "../pages/Greating";
 import Home from "../pages/Home";
 
@@ -11,7 +12,12 @@ export default function Router() {
     {
       name: "greeting",
       path: "/greating",
-      component: <Greeting name="red"  />,
+      component: <Greeting name="red" />,
+    },
+    {
+      name: "greeting",
+      path: "/kursus",
+      component: <Course />,
     },
   ];
 }

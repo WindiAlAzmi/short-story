@@ -1,5 +1,5 @@
 import { MapIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useShowingNotifications from "../hooks/useShowingNotifications";
 import useShowingAlert from "../hooks/useShowingAlert";
@@ -73,7 +73,9 @@ export default function Header() {
 
           <div className="text-[12px] text-left my-5 px-6 flex flex-col gap-3">
             {AllMenuItem?.map((item, index) => (
-              <div key={index}>{item?.label}</div>
+              <NavLink key={index} to={item.path}>
+                <div>{item?.label}</div>
+              </NavLink>
             ))}
           </div>
         </div>
@@ -81,9 +83,11 @@ export default function Header() {
 
       {/* Nav */}
       <div className=" text-black text-xl hidden md:flex flex-row gap-4 ">
-        <div className="h-10">
-          <h3>Kursus</h3>
-        </div>
+        <NavLink to="/kursus">
+          <div className="h-10">
+            <h3>Kursus</h3>
+          </div>
+        </NavLink>
         <div className="h-10">
           <MapIcon className="w-10 h-8" />
         </div>

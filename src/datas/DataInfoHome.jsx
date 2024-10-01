@@ -86,7 +86,7 @@ export const MenuItem = () => {
       key: "sub1",
       icon: "",
       label: "Kursus",
-      path: "/",
+      path: "/kursus",
       children: [],
     },
     {
