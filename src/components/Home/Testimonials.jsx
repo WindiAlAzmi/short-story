@@ -47,7 +47,7 @@ export default function Testimonials() {
               {`"`}
             </h3>
             <img
-              src={`/public/assets/image/${item.photo}`}
+              src={`/assets/image/${item.photo}`}
               alt="img-testi"
               className="w-[48px] h-auto mx-auto mt-6 mb-3"
             />

@@ -12,7 +12,7 @@ export default function ReachDream() {
             className="flex flex-col md:w-[20%] w-[40%] gap-4 justify-center items-center"
           >
             <img
-              src={`/public/assets/icons/${item.img}`}
+              src={`/assets/icons/${item.img}`}
               alt="logo"
               className="md:w-[40px] md:h-[44px] h-[30px] w-[30px] cursor-pointer"
             />

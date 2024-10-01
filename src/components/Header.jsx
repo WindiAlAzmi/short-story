@@ -39,7 +39,7 @@ export default function Header() {
       )}
       {/* Logo */}
       <img
-        src="/public/assets/image/logo-brand.png"
+        src="/assets/image/logo-brand.png"
         alt="logo"
         className="w-[190px] h-auto cursor-pointer"
         onClick={() => navigate("/")}
@@ -49,7 +49,7 @@ export default function Header() {
         className="cursor-pointer md:hidden flex flex-row w-[10%] justify-center"
       >
         <img
-          src="/public/assets/icons/menu.png"
+          src="/assets/icons/menu.png"
           alt="logo"
           className="w-[30px] h-auto"
           onClick={() => navigate("/")}
@@ -60,7 +60,7 @@ export default function Header() {
         <div className="shadow-md  py-4 rounded h-fit top-0 fixed z-[999] inset-0 bg-white">
           <div className="flex flex-row items-center justify-between px-6">
             <img
-              src="/public/assets/image/logo-brand.png"
+              src="/assets/image/logo-brand.png"
               alt="logo"
               className="w-[190px] h-auto cursor-pointer"
               onClick={() => navigate("/")}
@@ -89,7 +89,7 @@ export default function Header() {
         </div>
         <div className="h-10">
           <img
-            src="/public/assets/icons/flag.png"
+            src="/assets/icons/flag.png"
             alt="logo"
             className="w-[40px] h-[30px]"
           />

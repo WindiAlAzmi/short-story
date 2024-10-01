@@ -50,7 +50,7 @@ export default function Footer() {
       <div className="flex md:flex-row flex-col ">
         <div className="text-[12px] flex flex-col gap-2 w-[50%]">
           <img
-            src="/public/assets/image/logo-brand.png"
+            src="/assets/image/logo-brand.png"
             alt="logo"
             className="w-[190px] h-auto cursor-pointer"
           />
@@ -76,7 +76,7 @@ export default function Footer() {
                     return (
                       <img
                         key={index}
-                        src={`/public/assets/icons/${dt.name}`}
+                        src={`/assets/icons/${dt.name}`}
                         alt="logo"
                         className="w-[24px] h-[22px]"
                       />
