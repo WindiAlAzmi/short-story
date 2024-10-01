@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import NotFound from './pages/NotFound';
-import Router from './datas/router';
+import Router from './datas/Router';
 import { store } from './stores/store';
 import { Provider } from 'react-redux';
 import Layout from './components/Layout';
