@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { DataInfoCourse } from "../../datas/DataInfoDetailCourse";
+import { useSelector } from "react-redux";
 
 export default function DataDetailCourse() {
-  const getParams = useParams();
+   const dataDetail = useSelector((state) => state.course);
+   const [isData, setIsData] = useState({});
+
   const [dataFilterDetail, setDataFilterDetail] = useState([]);
   const [dataTicket, setDataTicket] = useState(1);
 
@@ -22,43 +24,63 @@ export default function DataDetailCourse() {
   };
 
   useEffect(() => {
-    const getDataInfoDetail = DataInfoCourse();
-    const putActiveField = getDataInfoDetail?.map((item) => ({
-      ...item,
-      isActive: false,
-    }));
-    setDataFilterDetail(putActiveField);
-  }, []);
+      const getDataInfoDetail = DataInfoCourse();
+      const putActiveField = getDataInfoDetail?.map((item) => ({
+        ...item,
+        isActive: false,
+      }));
+
+      setIsData(dataDetail.dataDetailCourses);
+
+
+      //put desc and materi in filter 
+      const getDesc = dataDetail.dataDetailCourses?.desc;
+      const getMateri = dataDetail.dataDetailCourses?.materi;
+      const putData = putActiveField?.map((item) => {
+        if(item.title === "deskripsi") {
+          return {...item, desc : [getDesc]}
+        } else if(item.title === "materi" ) {
+          return {...item, desc : getMateri}      
+        }else {
+          return item; 
+        }
+      })
+
+      setDataFilterDetail(putData)
+
+    }, [dataDetail]);
+
+
 
   return (
-    <div className=" md:w-[30%] w-full text-left flex flex-col justify-center md:justify-start gap-4 md:px-0 px-2">
-      <h4 className="md:text-left text-center">Makeup Sederhana {getParams?.params}</h4>
+    <div className="md:w-[30%] w-full text-left flex flex-col justify-center md:justify-start gap-4 md:px-0 px-2">
+      <h4 className="md:text-left text-center">{isData?.title}</h4>
       {/* Level */}
-      <div className="border rounded-full bg-gray-200 text-black w-[30%] flex flex-row gap-2 px-5 py-2">
+      <div className="border rounded-full bg-gray-200 text-black w-[30%]  justify-center flex flex-row gap-2 px-3 py-2">
         <img
           src="/assets/icons/activity-black.png"
           alt="activity"
-          className="md:w-[20px] md:h-[20px] w-[12px] h-[14px] cursor-pointer"
+          className="md:h-[20px]  h-[14px] cursor-pointer"
         />
-        <h4 className="text-[12px]">Pemula</h4>
+        <h4 className="text-[12px]">{isData?.level}</h4>
       </div>
       {/* Icons */}
-      <div className="flex flex-row justify-start gap-10 md:w-[50%] w-full">
-        <div className="flex flex-row gap-3 md:text-[12px] text-[8px] items-center">
+      <div className="flex flex-row justify-start gap-10 md:w-[50%] w-full ">
+        <div className="flex flex-row gap-3 md:text-[12px] md:w-1/2 text-[8px] items-center">
           <img
             src="/assets/icons/calendar-black.png"
             alt="img"
             className="md:w-[24px] md:h-[24px] w-[14px] h-[14px] "
           />{" "}
-          <h5>22/04</h5>
+          <h5>{isData?.duration?.date}</h5>
         </div>
-        <div className="flex flex-row gap-3 md:text-[12px] text-[8px] items-center">
+        <div className="flex flex-row gap-3 md:text-[12px] text-[8px] md:w-1/2 whitespace-pre items-center">
           <img
             src="/assets/icons/clock.png"
             alt="img"
             className="md:w-[24px] md:h-[24px]  w-[14px] h-[14px]"
           />{" "}
-          <h5>08 pagi</h5>
+          <h5>{isData?.duration?.time}</h5>
         </div>
       </div>
       {/* Daftar Tombol */}
@@ -69,22 +91,26 @@ export default function DataDetailCourse() {
             <img
               src="/assets/icons/dollar-black.png"
               alt="img"
-              className="md:w-[24px] md:h-[24px] w-[14px] h-[14px] "
+              className="md:w-[24px] md:h-[24px] w-[20px] h-[20px] "
             />{" "}
-            <h5>Rp {20500 * dataTicket}</h5>
+            <h5>
+              {isData?.price === "gratis"
+                ? isData?.price
+                : "Rp" + isData?.price * dataTicket}
+            </h5>
           </div>
           <div className="flex flex-row gap-3 md:text-[12px] text-[8px] items-center">
             <img
               src="/assets/icons/minus-square.png"
               alt="img"
-              className="md:w-[24px] md:h-[24px] cursor-pointer  w-[14px] h-[14px]"
+              className="md:w-[24px] md:h-[24px] cursor-pointer  w-[20px] h-[20px]"
               onClick={() => dataTicket > 1 && setDataTicket(dataTicket - 1)}
             />{" "}
             <h5>{dataTicket}</h5>
             <img
               src="/assets/icons/plus-square.png"
               alt="img"
-              className="md:w-[24px] md:h-[24px] cursor-pointer  w-[14px] h-[14px]"
+              className="md:w-[24px] md:h-[24px] cursor-pointer  w-[20px] h-[20px]"
               onClick={() => setDataTicket(dataTicket + 1)}
             />{" "}
           </div>

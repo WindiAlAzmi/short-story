@@ -1,4 +1,14 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 export default function BodyDetailCourse() {
+  const dataDetail = useSelector((state) => state.course);
+  const [isData, setIsData] = useState({});
+
+  useEffect(() => {
+    setIsData(dataDetail.dataDetailCourses);
+  }, [dataDetail])
+
   return (
     <div className="flex flex-col text-left w-full">
       {/* Profile Mentor */}
@@ -10,14 +20,14 @@ export default function BodyDetailCourse() {
           className="w-[40px] h-[36px] rounded-full"
         />{" "}
         <div className="flex flex-col w-[40%]">
-          <h5 className="md:text-[15px] text-[12px]">Windi</h5>
+          <h5 className="md:text-[15px] text-[12px]">{isData?.mentor}</h5>
           <div className="flex flex-row gap-3 md:text-[12px] text-[12px]">
             <img
               src="/assets/icons/users.png"
               alt="img"
               className="w-[18px] h-[18px] rounded-full"
             />{" "}
-            <h5>1200 siswa</h5>
+            <h5>{isData?.totalStudent} siswa</h5>
           </div>
         </div>
       </div>
@@ -34,7 +44,7 @@ export default function BodyDetailCourse() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <h5 className="md:text-[16px] text-[12px] text-gray-400">Bekasi</h5>
+        <h5 className="md:text-[16px] text-[12px] text-gray-400">{isData?.location}</h5>
       </div>
     </div>
   );

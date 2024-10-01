@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { SliderCourse } from "../../datas/DataInfoDetailCourse";
 import { Carousel } from "antd";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const StyledCarousel = styled(Carousel)`
   .slick-dots li button {
@@ -21,7 +21,9 @@ const StyledCarousel = styled(Carousel)`
 `;
 
 export default function SliderDetailCourse() {
-  const dataSlider = SliderCourse();
+  const dataDetail = useSelector((state) => state.course);
+  const [isData, setIsData] = useState({});
+
   const [urlImage, setUrlImage] = useState("");
   const [optionFilter, setOptionFilter] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -43,16 +45,22 @@ export default function SliderDetailCourse() {
     updateScreens();
   }, []);
 
+  useEffect(() => {
+    setIsData(dataDetail.dataDetailCourses);
+ }, [dataDetail]);
+
+
   return (
     <div className="w-full flex md:flex-row flex-col md:gap-10 gap-4">
+      {/* <h5 className="order-first flex md:hidden text-center justify-center text-[20px]">{isData?.title}</h5> */}
       {/* Slider Web dan mobile*/}
       {windowWidth < 744 ? (
         <StyledCarousel
           slidesToShow={2.5}
           autoplay
-          className="flex flex-row h-full  w-full"
+          className="flex flex-row h-full w-full"
         >
-          {dataSlider?.map((item, index) => (
+          {isData?.portofolio?.map((item, index) => (
             <div key={index} className="w-full px-1">
               <img
                 src={item?.url}
@@ -65,7 +73,7 @@ export default function SliderDetailCourse() {
         </StyledCarousel>
       ) : (
         <div className="md:w-[20%] w-full gap-4 md:flex hidden md:flex-col flex-row">
-          {dataSlider?.map((item, index) => (
+          {isData?.portofolio?.map((item, index) => (
             <img
               key={index}
               src={item?.url}
@@ -76,14 +84,11 @@ export default function SliderDetailCourse() {
           ))}
         </div>
       )}
-
       {/* Image Slider */}
-      <div className="md:w-[70%]  relative md:h-fit flex flex-col gap-4">
+      <div className="md:w-[70%] relative md:h-fit flex flex-col gap-4">
         {optionFilter === "foto" && (
           <img
-            src={
-              urlImage !== "" ? urlImage : "/assets/img/person-pelatihan-4.jpg"
-            }
+            src={urlImage !== "" ? urlImage : isData?.headline_img}
             alt="img"
             className="w-full md:h-[20rem] h-[12rem] rounded-md"
           />

@@ -10,12 +10,12 @@ export const DataInfoCourse = () => {
     },
     {
       id: 2,
-      title: "Materi",
+      title: "materi",
       desc: ["1. Teknik Dasar", "2. Teknik Apply Shading"],
     },
     {
       id: 3,
-      title: "Tata Cara Daftar",
+      title: "tata cara daftar",
       desc: [
         "1. Complete the Sign-up form here ",
         "2. Improve your profile while you are waiting for your profile to be approved",

@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateListCourse } from "../../features/coursesSlice";
 
 export default function HeaderCourse() {
+  const getDataCourse = useSelector((state) => state.course);
+  const dispatch = useDispatch();
 
-   const [search, setSearch] = useState("");
-
-    console.log(search, 'ini search');
+  const handleSearch = (dataSearch) => {
+    if (dataSearch.trim() !== "") {
+      let findData = getDataCourse?.keepDataForFilter?.filter((item) =>
+        item.title.toLowerCase().includes(dataSearch.toLowerCase())
+      );
+      dispatch(updateListCourse(findData));
+    } else {
+      dispatch(updateListCourse(getDataCourse?.keepDataForFilter));
+    }
+  };
 
   return (
     <div className="w-full mx-auto md:my-10 mt-24 md:mt-20 md:text-[22px] text-[14px] px-2 md:px-0 gap-14 font-medium capitalize flex flex-col  max-w-7xl">
@@ -14,7 +24,12 @@ export default function HeaderCourse() {
       </div>
       <div className="md:w-[50%] w-full px-4 md:px-0 mx-auto">
         <div className="border py-2 px-4 w-full flex flex-row items-center justify-between  border-gray-400 rounded-[10px]">
-          <input placeholder="cari pelatihan apa?" onChange={(e) => setSearch(e.target.value)} className="capitalize w-[90%] md:text-[16px] text-xs outline-none ring-0 " type="text" />
+          <input
+            placeholder="cari pelatihan apa?"
+            onChange={(e) => handleSearch(e.target.value)}
+            className="capitalize w-[90%] md:text-[16px] text-xs outline-none ring-0 "
+            type="text"
+          />
           {/* Logo */}
           <img
             src="/assets/icons/search.png"
