@@ -4,6 +4,7 @@ import notificationReducer from "../features/notificationSlice";
 import alertReducer from "../features/alertSlice";
 import courseReducer from "../features/coursesSlice";
 import generalReducer from "../features/generalSlice";
+import modalReducer from "../features/modalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     notification:notificationReducer,
     alert:alertReducer,
     course: courseReducer,
-    general: generalReducer
+    general: generalReducer,
+    modal:modalReducer
   },
 });

@@ -29,6 +29,7 @@ export default function Questions() {
   const handleQuestions = (key) => {
     console.log("update", key);
   };
+  
   return (
     <div className="mx-auto md:my-10 mt-14 md:mt-40 md:text-[22px] text-[14px] px-2 md:px-0 gap-6 font-medium capitalize flex flex-col max-w-4xl">
       <h4>Pertanyan yang sering ditanyakan</h4>

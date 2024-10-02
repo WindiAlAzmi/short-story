@@ -13,8 +13,6 @@ import { Link } from "react-router-dom";
 export default function SummaryCart() {
   const dataDetail = useSelector((state) => state.course);
   
-  console.log(data, 'ini data');
-
   useEffect(() => {
      
   }, [dataDetail]);

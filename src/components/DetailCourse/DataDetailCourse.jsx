@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { DataInfoCourse } from "../../datas/DataInfoDetailCourse";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {  useNavigate } from "react-router-dom";
+import { getDataFromLocalStorage } from "../../utils/localStorageFunc";
+import { showingModal } from "../../features/modalSlice";
 
 export default function DataDetailCourse() {
    const dataDetail = useSelector((state) => state.course);
    const [isData, setIsData] = useState({});
+   const dispatch = useDispatch();
+   const navigate = useNavigate();
 
   const [dataFilterDetail, setDataFilterDetail] = useState([]);
   const [dataTicket, setDataTicket] = useState(1);
@@ -52,6 +56,12 @@ export default function DataDetailCourse() {
     }, [dataDetail]);
 
 
+    const handleGetTicketCourse = () => {
+      const getResultLocalStorage = getDataFromLocalStorage("user-data");
+      if(getResultLocalStorage === null) dispatch(showingModal());
+      else navigate(`/checkout/${isData?.id}`)
+
+    }
 
   return (
     <div className="md:w-[30%] w-full text-left flex flex-col justify-center md:justify-start gap-4 md:px-0 px-2">
@@ -117,15 +127,19 @@ export default function DataDetailCourse() {
           </div>
         </div>
         {/* Button Daftar  */}
-        <Link
+
+        {/* <Link
           to={`/checkout/${isData?.id}`}
           className="rounded-[10px] h-10 px-6 py-2  text-center text-base text-white  bg-black"
         >
           Daftar
-        </Link>
-        {/* <div className="rounded-[10px] h-10 px-6 py-2  text-center text-base text-white  bg-black">
+        </Link> */}
+        <div
+          onClick={() => handleGetTicketCourse()}
+          className="rounded-[10px] h-10 px-6 py-2 cursor-pointer text-center text-base text-white  bg-black"
+        >
           Daftar
-        </div> */}
+        </div>
       </div>
       {/* Daftar List */}
       <div className="flex flex-col w-full  flex-wrap gap-4">

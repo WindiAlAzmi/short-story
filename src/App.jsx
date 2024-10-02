@@ -5,6 +5,8 @@ import Router from './datas/Router';
 import { store } from './stores/store';
 import { Provider } from 'react-redux';
 import Layout from './components/Layout';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route element={<Layout />}>
             {publicRouter?.map((item, index) => (
               <Route key={index} path={item.path} element={item.component} />
