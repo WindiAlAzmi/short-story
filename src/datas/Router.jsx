@@ -1,6 +1,8 @@
+import Cart from "../pages/Cart";
 import Course from "../pages/Course";
 import DetailCourse from "../pages/DetailCourse";
 import Home from "../pages/Home";
+import SuccessBuy from "../pages/SuccessBuy";
 
 export default function Router() {
   return [
@@ -18,6 +20,16 @@ export default function Router() {
       name: "detail kursus",
       path: "/kursus/:params",
       component: <DetailCourse />,
-    }
+    },
+    {
+      name: "cart",
+      path: "/checkout/:params",
+      component: <Cart />,
+    },
+    {
+      name: "success",
+      path: "/success-payment",
+      component: <SuccessBuy />,
+    },
   ];
 }

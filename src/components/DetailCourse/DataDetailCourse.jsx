@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { DataInfoCourse } from "../../datas/DataInfoDetailCourse";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function DataDetailCourse() {
    const dataDetail = useSelector((state) => state.course);
@@ -116,9 +117,15 @@ export default function DataDetailCourse() {
           </div>
         </div>
         {/* Button Daftar  */}
-        <div className="rounded-[10px] h-10 px-6 py-2  text-center text-base text-white  bg-black">
+        <Link
+          to={`/checkout/${isData?.id}`}
+          className="rounded-[10px] h-10 px-6 py-2  text-center text-base text-white  bg-black"
+        >
           Daftar
-        </div>
+        </Link>
+        {/* <div className="rounded-[10px] h-10 px-6 py-2  text-center text-base text-white  bg-black">
+          Daftar
+        </div> */}
       </div>
       {/* Daftar List */}
       <div className="flex flex-col w-full  flex-wrap gap-4">
