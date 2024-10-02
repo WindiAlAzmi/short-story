@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import LoadingComponent from "./LoadingComponent";
+// import LoadingComponent from "./LoadingComponent";
 
 export default function Layout() {
 
@@ -10,7 +10,7 @@ export default function Layout() {
       <Header/>
       <Outlet/>
       <Footer/>
-      <LoadingComponent />
+      {/* <LoadingComponent /> */}
     </div>
   )
 }
