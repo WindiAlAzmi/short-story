@@ -1,6 +1,7 @@
 import Cart from "../pages/Cart";
 import Course from "../pages/Course";
 import DetailCourse from "../pages/DetailCourse";
+import GlamOnTheSpot from "../pages/GlamOnTheSpot";
 import Home from "../pages/Home";
 import SuccessBuy from "../pages/SuccessBuy";
 
@@ -30,6 +31,11 @@ export default function Router() {
       name: "success",
       path: "/success-payment",
       component: <SuccessBuy />,
+    },
+    {
+      name: "glam",
+      path: "/glam-on-the-spot",
+      component: <GlamOnTheSpot/>,
     },
   ];
 }

@@ -35,7 +35,7 @@ export default function ModalComponent() {
   );
 }
 
-ModalComponent.PropTypes = {
+ModalComponent.propTypes = {
   isModalOpen: PropTypes.func,
   isModalCancel: PropTypes.func,
   handleOk: PropTypes.func,

@@ -1,4 +1,4 @@
-import { MapIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {  XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useShowingNotifications from "../hooks/useShowingNotifications";
@@ -146,9 +146,11 @@ export default function Header() {
             <h3>Kursus</h3>
           </div>
         </NavLink>
-        <div className="h-10">
-          <MapIcon className="w-10 h-8" />
-        </div>
+        <NavLink to="/glam-on-the-spot">
+          <div className="h-10">
+            <h3> Glam On The Spot</h3>
+          </div>
+        </NavLink>
         <div className="h-10">
           <img
             src="/assets/icons/flag.png"

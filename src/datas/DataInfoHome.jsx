@@ -92,9 +92,9 @@ export const MenuItem = () => {
     {
       key: "sub2",
       icon: "",
-      label: "Cari Kursus Di Sekitar Kamu",
+      label: "Glamour On-The-Spot",
       path: "/",
       children: [],
-    }
+    },
   ];
 }

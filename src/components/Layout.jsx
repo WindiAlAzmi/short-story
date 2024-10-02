@@ -9,8 +9,8 @@ export default function Layout() {
   return (
     <div className="w-full border relative">
       <Header />
-      <ModalComponent />
       <Outlet />
+      <ModalComponent />
       <Footer />
       {/* <LoadingComponent /> */}
     </div>
