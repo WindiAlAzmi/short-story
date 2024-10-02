@@ -144,9 +144,8 @@ export default function DataDetailCourse() {
       {/* Daftar List */}
       <div className="flex flex-col w-full  flex-wrap gap-4">
         {dataFilterDetail?.map((item, index) => (
-          <>
+          <div className="w-full" key={index}>
             <div
-              key={index}
               onClick={() => updateFieldActive(item)}
               className="rounded-md cursor-pointer border border-gray-400  md:w-[80%] w-full md:text-[15px] text-[12px] px-2 py-2 items-center flex flex-row justify-between"
             >
@@ -162,7 +161,7 @@ export default function DataDetailCourse() {
                 {item?.desc}
               </div>
             )}
-          </>
+          </div>
         ))}
       </div>
     </div>

@@ -85,15 +85,22 @@ export const MenuItem = () => {
     {
       key: "sub1",
       icon: "",
-      label: "Kursus",
-      path: "/kursus",
+      label: "Home",
+      path: "/",
       children: [],
     },
     {
       key: "sub2",
       icon: "",
-      label: "Glamour On-The-Spot",
-      path: "/",
+      label: "Kursus",
+      path: "/kursus",
+      children: [],
+    },
+    {
+      key: "sub3",
+      icon: "",
+      label: "Glam On The Spot",
+      path: "/glam-on-the-spot",
       children: [],
     },
   ];

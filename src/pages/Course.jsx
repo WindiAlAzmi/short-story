@@ -2,21 +2,21 @@
 import { useEffect } from "react";
 import BodyCourse from "../components/Course/BodyCourse";
 import HeaderCourse from "../components/Course/HeaderCourse";
-import { DataDummy } from "../datas/DataCourseDummy";
+// import { DataDummy } from "../datas/DataCourseDummy";
 import { addCourses } from "../features/coursesSlice";
 import { useDispatch } from "react-redux";
 import { setLoading } from "../features/generalSlice";
+import { getAllCourses } from "../services/coursesService";
 
 export default function Course() {
   const dispatch = useDispatch();
 
     const hitAPICourse = async () => {
       try {
-        const data = DataDummy();
-        // console.log(data, "ini data dummy cpurses");
-        //  const data = await getAllCourses();
-        //  console.log(data, 'ini daat');
-        dispatch(addCourses(data));
+        // const data = DataDummy();
+         const data = await getAllCourses();
+         console.log(data, 'ini data');
+        dispatch(addCourses(data.data));
       } catch (error) {
         console.error("failed", error);
       }

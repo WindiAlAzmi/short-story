@@ -50,9 +50,8 @@ export default function PaymentMethod() {
           <hr className="border border-black mb-4 " />
           <div className="flex flex-col w-full  flex-wrap gap-4">
             {dataFilterDetail?.map((item, index) => (
-              <>
+              <div className="w-full" key={index}>
                 <div
-                  key={index}
                   onClick={() => updateFieldActive(item)}
                   className="rounded-md cursor-pointer border border-gray-400  md:w-[100%] w-full md:text-[15px] text-[12px] px-2 py-2 items-center flex flex-row justify-between"
                 >
@@ -71,11 +70,14 @@ export default function PaymentMethod() {
                     </div>
                     <div className="flex flex-col gap-4">
                       <h4>Nomer Rekening:</h4>
-                      <StyledInput type="number" placeholder="Tulis Nomer Rekening disini" />
+                      <StyledInput
+                        type="number"
+                        placeholder="Tulis Nomer Rekening disini"
+                      />
                     </div>
                   </div>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </div>

@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import ChooseRightNow from "../components/GlamOnTheSpot/ChooseRightNow";
 import FlowGlam from "../components/GlamOnTheSpot/FlowGlam";
 import VideoDemo from "../components/GlamOnTheSpot/VideoDemo";
 import WhyThis from "../components/GlamOnTheSpot/WhyThis";
 
 export default function GlamOnTheSpot() {
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <>
       <VideoDemo />

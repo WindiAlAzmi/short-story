@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ContactUs from "../components/Home/ContactUs";
 import Questions from "../components/Home/Questions";
 import ReachDream from "../components/Home/ReachDream";
@@ -6,6 +7,11 @@ import VideoHome from "../components/Home/VideoHome";
 
 
 export default function Home() {
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
 
   return (
     <>

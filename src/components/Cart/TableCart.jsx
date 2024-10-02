@@ -1,6 +1,8 @@
 import { Input } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { getDataFromLocalStorage } from "../../utils/localStorageFunc";
+import { useSelector } from "react-redux";
 
 const StyledInput = styled(Input)`
   &:focus {
@@ -11,7 +13,20 @@ const StyledInput = styled(Input)`
 
 
 export default function TableCart() {
-  const [dataTicket, setDataTicket] = useState(0);
+  const [dataTicket, setDataTicket] = useState(1);
+  const [isDataUser, setIsDataUser] = useState({});
+  const dataDetail = useSelector((state) => state.course);
+  const [isData, setIsData] = useState({});
+
+    useEffect(() => {
+      setIsData(dataDetail.dataDetailCourses);
+    }, [dataDetail]);
+
+
+  useEffect(() => {
+    const getResultLocalStorage = getDataFromLocalStorage("user-data");
+    setIsDataUser(getResultLocalStorage);
+  } ,[])
 
   return (
     <div className="w-full flex md:flex-col flex-col md:gap-20 gap-4 -mt-20 md:mt-0">
@@ -30,18 +45,18 @@ export default function TableCart() {
             <tbody>
               <tr>
                 <td className="min-w-[200px] md:min-w-[100px] md:w-[200px]">
-                  <div className="flex flex-col py-10 text-[14px] text-left gap-4">
+                  <div className="flex md:w-[200px] flex-col py-10 text-[14px] text-left gap-4">
                     <img
-                      src="/assets/img/pelatihan-1.png"
+                      src={isData?.headline_img}
                       alt="activity"
-                      className="w-full md:h-[100px] h-[120px] rounded-[10px]  cursor-pointer"
+                      className="w-full  md:h-[100px] h-[120px] rounded-[10px]  cursor-pointer"
                     />
-                    <h4>Makeup Sederhana By Uci</h4>
+                    <h4 className="w-full whitespace-pre-wrap">{isData?.title}</h4>
                   </div>
                 </td>
                 <td className="min-w-[100px] md:min-w-[100px] md:w-[200px] px-2">
                   <div className="text-center py-10 text-[14px]  gap-4">
-                    Rp 50.000
+                    Rp {isData?.price}
                   </div>
                 </td>
                 <td className="min-w-[120px] md:min-w-[100px] md:w-[200px] ">
@@ -66,7 +81,7 @@ export default function TableCart() {
                 <td className="min-w-[120px] md:min-w-[100px] md:w-[200px]">
                   {" "}
                   <div className="text-center py-10 text-[14px]  gap-4">
-                    Rp 50.000
+                    Rp 5{dataTicket * isData?.price}
                   </div>
                 </td>
                 <td>
@@ -102,7 +117,10 @@ export default function TableCart() {
                 </td>
                 <td className="min-w-[200px] md:min-w-[100px] md:w-[200px]  px-4  ">
                   <div className="w-full justify-center flex flex-row gap-3 md:text-[12px] text-[8px] items-center">
-                    <StyledInput placeholder="Tulis Email disini" />
+                    <StyledInput
+                      placeholder="Tulis Email disini"
+                      value={isDataUser?.user?.email}
+                    />
                   </div>
                 </td>
                 <td className="min-w-[200px] md:min-w-[100px] md:w-[200px]  px-4">

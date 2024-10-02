@@ -82,7 +82,6 @@ export default function Header() {
           src="/assets/icons/menu.png"
           alt="logo"
           className="w-[30px] h-auto"
-          onClick={() => navigate("/")}
         />
       </div>
       {/* Nav Mobile */}
@@ -103,9 +102,9 @@ export default function Header() {
 
           <div className="text-[12px] text-left my-5 px-6 flex flex-col gap-3">
             {AllMenuItem?.map((item, index) => (
-              <NavLink key={index} to={item.path}>
+              <Link key={index} to={item.path}>
                 <div>{item?.label}</div>
-              </NavLink>
+              </Link>
             ))}
           </div>
           <div className=" flex px-6 justify-start items-start flex-col gap-4">
